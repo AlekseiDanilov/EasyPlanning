@@ -1,0 +1,44 @@
+{
+  "name": "webclient",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8080",
+      "pathRewrite": {
+        "^/api/login": "/login"
+      }
+    },
+    "/ws": {
+      "target": "http://localhost:8080",
+      "ws": true
+    }
+  },
+  "devDependencies": {
+    "custom-react-scripts": "0.2.1",
+    "husky": "^0.14.3",
+    "prettier": "^1.10.2",
+    "pretty-quick": "^1.2.0"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "lodash": "^4.17.4",
+    "mobx": "^3.3.1",
+    "mobx-react": "^4.3.3",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.1.1",
+    "react-router-dom": "^4.2.0",
+    "sockjs-client": "^1.1.4",
+    "webstomp-client": "^1.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "pretty-quick": "pretty-quick",
+    "precommit": "pretty-quick --staged",
+    "prepush": "set CI=true && npm test"
+  }
+}
